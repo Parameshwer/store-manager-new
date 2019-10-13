@@ -1,0 +1,32 @@
+.stores-wrap {	
+    font-family: arial;
+    width: 880px;
+    margin: 0 auto;    
+    h1 {
+		color: #138aff;		
+		margin: 40px 0 10px 10px;
+	}
+	div {
+		a {
+			margin: 0 0 0 10px;
+		}	
+	}
+    .store-box {
+		color: #fff;
+		width: 200px;
+		height: 200px;
+		align-content: space-between;
+		margin: 10px;
+		background-color: DodgerBlue;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		line-height: 160px;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 20px;
+		letter-spacing: 1px;
+		font-weight: 400;	    
+	}
+}
+
