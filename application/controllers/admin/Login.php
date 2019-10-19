@@ -3,8 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 Class Login extends CI_Controller {
 
 
-	public function index(){
-
+	public function index() {		
 		$this->form_validation->set_rules('username','Username','required');
 		$this->form_validation->set_rules('password','Password','required');
 		if($this->form_validation->run()){
@@ -28,8 +27,7 @@ Class Login extends CI_Controller {
 	}
 
 //function for logout
-	public function logout(){
-		echo 'aaa';exit;
+	public function logout(){		
 		$this->session->unset_userdata('adid');
 		$this->session->sess_destroy();
 		return redirect('admin/login');

@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <button routerLink=\"/stores\">Stores</button>\r\n<button routerLink=\"/billing\">Billing</button>\r\n<button routerLink=\"/admin\">Admin</button> -->\r\nsss <mat-slider min=\"1\" max=\"100\" step=\"1\" value=\"1\"></mat-slider>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <button routerLink=\"/stores\">Stores</button>\r\n<button routerLink=\"/billing\">Billing</button>\r\n<button routerLink=\"/admin\">Admin</button> -->\r\n<router-outlet></router-outlet>\r\n\r\n");
 
 /***/ }),
 
@@ -265,6 +265,52 @@ function __importDefault(mod) {
 
 /***/ }),
 
+/***/ "./src/app/admin/admin.service.ts":
+/*!****************************************!*\
+  !*** ./src/app/admin/admin.service.ts ***!
+  \****************************************/
+/*! exports provided: AdminService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminService", function() { return AdminService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let AdminService = class AdminService {
+    constructor(http) {
+        this.http = http;
+    }
+    getStores() {
+        return this.http.get('http://localhost/store-manager-new/stores/getStores');
+    }
+    getStoreDetails(storeId) {
+        return this.http.post('http://localhost/store-manager-new/stores/getStoreDetails', { id: storeId });
+    }
+    getUserDetails() {
+        return this.http.get('http://localhost/store-manager-new/stores/getUserDetails');
+    }
+    getMasterItems() {
+        return this.http.get('http://localhost/store-manager-new/stores/getMasterItems');
+    }
+};
+AdminService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+AdminService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AdminService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -375,9 +421,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _admin_admin_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./admin/admin.service */ "./src/app/admin/admin.service.ts");
+
+
 
 
 
@@ -391,25 +441,25 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["BrowserModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatToolbarModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatButtonModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSidenavModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatListModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatGridListModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatMenuModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSliderModule"]
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatToolbarModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSelectModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"]
         ],
-        providers: [],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+        providers: [_admin_admin_service__WEBPACK_IMPORTED_MODULE_9__["AdminService"]],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
+        entryComponents: []
     })
 ], AppModule);
 

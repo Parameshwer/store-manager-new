@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatToolbarModule, MatSliderModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule } from '@angular/material';
-
+import { MatToolbarModule, MatButtonModule,  MatIconModule, MatMenuModule,MatFormFieldModule,MatInputModule,MatSelectModule } from '@angular/material';
+import { AdminService } from './admin/admin.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -17,16 +19,16 @@ import { MatToolbarModule, MatSliderModule, MatButtonModule, MatSidenavModule, M
     HttpClientModule,
     AppRoutingModule,
     MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
+    MatButtonModule,    
     MatIconModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatSliderModule
+    MatMenuModule,    
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AdminService],
+  bootstrap: [AppComponent],
+  entryComponents: []
 })
 export class AppModule { }

@@ -1,0 +1,26 @@
+<div class="store-detail-container">
+	<div class="store-detail-sidenav">
+		<button mat-menu-item>Check Stock</button>
+		<button mat-menu-item>Send Stock</button>
+		<button mat-menu-item>Check Sales</button>
+	</div>
+	<div class="store-detail-maincontent">
+		<h2>Send Stock</h2>
+		<mat-form-field *ngIf="masterItems">
+			<mat-label>Item Name</mat-label>
+			<mat-select>
+				<mat-option *ngFor="let item of masterItems.itemTypes" [value]="item.id">
+					{{item.item_name}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-form-field *ngIf="masterItems">
+			<mat-label>Item Size</mat-label>
+			<mat-select>
+				<mat-option *ngFor="let itemVariant of masterItems.itemVariants" [value]="itemVariant.id">
+					{{itemVariant.variant_name}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+</div>
