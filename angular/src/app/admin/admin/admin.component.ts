@@ -31,6 +31,7 @@ export class AdminComponent implements OnInit {
 
   getStoreDetails() {
     this.route.params.subscribe(params => {
+    console.log(params);
         this.storeId = params.id;
           this.adminService.getStoreDetails(this.storeId).subscribe(response => {                
             this.storeDetails = response;

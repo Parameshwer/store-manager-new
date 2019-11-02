@@ -33,4 +33,13 @@ Class Stores extends CI_Controller {
 		$masterItems['itemVariants'] = $this->Store_Model->getItemVariants();
 		echo json_encode($masterItems);
 	}
+	public function saveStock() {
+		$obj=json_decode(file_get_contents('php://input'));				
+		$storeDetails = $this->Store_Model->getStroreDetailsById($obj->storeId);
+		return $this->Store_Model->saveStock($obj);
+	}
+	public function getStock() {
+		$obj=json_decode(file_get_contents('php://input'));								
+		echo json_encode($this->Store_Model->getStock($obj->storeId));
+	}
 }	

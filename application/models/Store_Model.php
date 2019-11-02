@@ -30,4 +30,31 @@ Class Store_Model extends CI_Model {
 		$query = $this->db->get();        
 		return $query->result();
 	}
+	public function getStroreDetailsById($storeId) {
+		$this->db->select("*");
+		$this->db->from("stores");	
+		$this->db->where('id', $storeId);	
+		$query = $this->db->get();        
+		return $query->result();
+	}
+	public function saveStock($itemDetails) {
+		for ($i=1; $i <= $itemDetails->noOfItems ; $i++) { 
+			$data = array(
+			    'item_name' => $itemDetails->itemTypes,
+			    'item_brand' => $itemDetails->itemBrand,
+			    'item_variant' => $itemDetails->itemVariants,			    
+			    'item_actual_price' => $itemDetails->actualAmount,
+			    'item_sell_price' => $itemDetails->sellingAmount,
+			    'item_store' => $itemDetails->storeId,
+			);
+			$this->db->insert('items', $data);
+		}
+		
+		
+	}
+	public function getStock($storeId) {
+		$query = $this->db->query('SELECT i.item_brand,i.item_actual_price,i.item_sell_price,it.item_name,iv.variant_name, COUNT(i.item_brand) as total FROM items i INNER JOIN item_types it on it.id = i.item_name INNER JOIN item_variants iv on iv.id = i.item_variant WHERE i.item_status = 1 AND i.item_store= "'.$storeId.'" GROUP BY i.item_name, i.item_variant, i.item_brand
+');		
+		return $query->result();
+	}
 }

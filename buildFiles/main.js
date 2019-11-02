@@ -297,6 +297,12 @@ let AdminService = class AdminService {
     getMasterItems() {
         return this.http.get('http://localhost/store-manager-new/stores/getMasterItems');
     }
+    saveStock(formValues) {
+        return this.http.post('http://localhost/store-manager-new/stores/saveStock', formValues);
+    }
+    getStock(storeId) {
+        return this.http.post('http://localhost/store-manager-new/stores/getStock', { storeId: storeId });
+    }
 };
 AdminService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -436,6 +442,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -446,6 +453,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["BrowserModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatToolbarModule"],
@@ -455,7 +463,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSelectModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"]
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTableModule"]
         ],
         providers: [_admin_admin_service__WEBPACK_IMPORTED_MODULE_9__["AdminService"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],

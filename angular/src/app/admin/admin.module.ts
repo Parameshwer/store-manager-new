@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -16,6 +16,7 @@ import { StoreDetailsComponent } from './store-details/store-details.component';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,    
     MatToolbarModule,
     MatButtonModule,

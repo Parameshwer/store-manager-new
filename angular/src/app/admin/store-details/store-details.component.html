@@ -1,26 +1,80 @@
 <div class="store-detail-container">
 	<div class="store-detail-sidenav">
-		<button mat-menu-item>Check Stock</button>
-		<button mat-menu-item>Send Stock</button>
-		<button mat-menu-item>Check Sales</button>
+		<button mat-menu-item (click)="checkStock()">Check Stock</button>
+		<button mat-menu-item (click)="sendStock()">Send Stock</button>
+		<button mat-menu-item (click)="checkSales()">Check Sales</button>
+		<button mat-menu-item (click)="billing()">Billing</button>
 	</div>
 	<div class="store-detail-maincontent">
-		<h2>Send Stock</h2>
-		<mat-form-field *ngIf="masterItems">
-			<mat-label>Item Name</mat-label>
-			<mat-select>
-				<mat-option *ngFor="let item of masterItems.itemTypes" [value]="item.id">
-					{{item.item_name}}
-				</mat-option>
-			</mat-select>
-		</mat-form-field>
-		<mat-form-field *ngIf="masterItems">
-			<mat-label>Item Size</mat-label>
-			<mat-select>
-				<mat-option *ngFor="let itemVariant of masterItems.itemVariants" [value]="itemVariant.id">
-					{{itemVariant.variant_name}}
-				</mat-option>
-			</mat-select>
-		</mat-form-field>
+		<div *ngIf="sendStockflg">
+			<h2>Send Stock</h2>
+			<form *ngIf="masterItems" [formGroup]="sendStockForm" (ngSubmit)="onSubmit()">
+				<mat-form-field>
+					<mat-label>Item Name</mat-label>
+					<mat-select formControlName="itemTypes">
+						<mat-option *ngFor="let item of masterItems.itemTypes" [value]="item.id">
+							{{item.item_name}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>Item Size</mat-label>
+					<mat-select formControlName="itemVariants">
+						<mat-option *ngFor="let itemVariant of masterItems.itemVariants" [value]="itemVariant.id">
+							{{itemVariant.variant_name}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field> 
+				<mat-form-field>
+					<input matInput placeholder="Item Brand" formControlName="itemBrand">
+				</mat-form-field>
+				<mat-form-field>
+					<input matInput placeholder="No Of Items" formControlName="noOfItems">
+				</mat-form-field>
+				<mat-form-field>
+					<input matInput placeholder="Enter actual amount" formControlName="actualAmount">
+				</mat-form-field>
+				<mat-form-field>
+					<input matInput placeholder="Enter selling amount" formControlName="sellingAmount">
+				</mat-form-field>
+				<button mat-stroked-button (click)="resetForm()">Cancel</button>
+				<button style="margin-left: 20px;" mat-stroked-button color="primary" type="submit" [disabled]="!sendStockForm.valid">Send Stock</button>
+			</form>
+		</div>
+		<div *ngIf="checkStockflg">
+			<table class="items-grids">
+				<tr>					
+					<th>item name</th>
+					<th>item Variant</th>
+					<th>item Brand</th>
+
+					<th>Total</th>
+				</tr>
+				<tr *ngFor="let item of allStock">					
+					<td>{{item.item_name}}</td>
+					<td>{{item.item_brand}}</td>
+					<td>{{item.variant_name}}</td>				
+					<td>{{item.total}}</td>
+
+				</tr>				
+			</table>
+		</div>
+		<div *ngIf="checkSalesflg">sendStosasckflg</div>
+		<div *ngIf="billingflg">
+			<h2>Billing</h2>
+			<form [formGroup]="billingForm" (ngSubmit)="onSubmit()">
+				<mat-form-field>
+				<mat-label>Enter Item Code</mat-label>
+				<textarea matInput
+				cdkTextareaAutosize
+				#autosize="cdkTextareaAutosize"
+				cdkAutosizeMinRows="5"
+				cdkAutosizeMaxRows="5" formControlName="billingIds"></textarea>
+				</mat-form-field>
+				<button mat-stroked-button (click)="resetBillingForm()">Cancel Bill</button>
+				<button style="margin-left: 20px;" mat-stroked-button color="primary" type="submit" [disabled]="!billingForm.valid">Make Bill</button>
+			</form>
+			
+		</div>
 	</div>
 </div>

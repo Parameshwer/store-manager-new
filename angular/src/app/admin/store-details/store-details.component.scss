@@ -19,11 +19,28 @@
 		top: 0;
 		bottom:0;
 		overflow:auto;
+		right: 0;
 		padding: 20px;
 		h2 {
 			font-size: 25px;
 			font-weight: 500;
 			margin: 0 0 15px 0;
 		}
-	}
+		.mat-form-field {
+			display: block;
+			width: 250px;
+		}
+	}	
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }

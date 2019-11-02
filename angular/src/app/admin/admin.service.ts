@@ -25,4 +25,10 @@ export class AdminService {
   getMasterItems() {
     return this.http.get('http://localhost/store-manager-new/stores/getMasterItems');
   }
+  saveStock(formValues) {
+    return this.http.post('http://localhost/store-manager-new/stores/saveStock', formValues);
+  }
+  getStock(storeId) {
+    return this.http.post('http://localhost/store-manager-new/stores/getStock', {storeId: storeId});
+  }
 }
