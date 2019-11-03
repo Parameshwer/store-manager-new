@@ -59,22 +59,101 @@
 				</tr>				
 			</table>
 		</div>
-		<div *ngIf="checkSalesflg">sendStosasckflg</div>
+
 		<div *ngIf="billingflg">
 			<h2>Billing</h2>
-			<form [formGroup]="billingForm" (ngSubmit)="onSubmit()">
+			<form [formGroup]="billingForm" (ngSubmit)="onBillingFormSubmit()">
 				<mat-form-field>
-				<mat-label>Enter Item Code</mat-label>
-				<textarea matInput
-				cdkTextareaAutosize
-				#autosize="cdkTextareaAutosize"
-				cdkAutosizeMinRows="5"
-				cdkAutosizeMaxRows="5" formControlName="billingIds"></textarea>
+					<mat-label>Enter Item Code</mat-label>
+					<textarea matInput
+					cdkTextareaAutosize
+					#autosize="cdkTextareaAutosize"
+					cdkAutosizeMinRows="5"
+					cdkAutosizeMaxRows="5" formControlName="billingIds"></textarea>
 				</mat-form-field>
+				<mat-error>{{invalidItemErrorMsg}}</mat-error>
 				<button mat-stroked-button (click)="resetBillingForm()">Cancel Bill</button>
 				<button style="margin-left: 20px;" mat-stroked-button color="primary" type="submit" [disabled]="!billingForm.valid">Make Bill</button>
 			</form>
-			
+
+			<div id="billing-items" class="billing-items" *ngIf="billingItems.length > 0">				
+				<table class="items-grids">
+					<tr>					
+						<th>item id</th>
+						<th>item Name</th>
+						<th>item Brand</th>
+						<th>item Size</th>
+						<th>item Price</th>
+
+					</tr>
+					<tr *ngFor="let item of billingItems">					
+						<td>{{item.id}}</td>
+						<td>{{item.item_name}}</td>
+						<td>{{item.item_brand}}</td>				
+						<td>{{item.variant_name}}</td>
+						<td style="text-align: right">Rs. {{item.item_sell_price}}</td>
+					</tr>	
+					<tr>
+						<td style="text-align: right" colspan="6">						
+							<span><b>Total: </b> Rs. {{totalPrice}}</span>
+						</td>						
+					</tr>	
+					<tr>					
+						<td style="text-align: right" colspan="6">
+							<p>
+								<span><b>Discount(%): </b> <input (keyup)="onKey($event)" style="width: 50px"type="text" name="discount" placeholder=""></span>
+								<span *ngIf="discountPrice"><b>  Discount Price:</b>Rs. {{discountPrice}}</span>
+							</p>
+							<p><b>Grand Total: </b>Rs. {{grandTotal}}</p>
+						</td>
+					</tr>		
+				</table>
+				<div><button style="margin-top: 10px;float: right" (click)="printDiv()" mat-stroked-button color="primary">Print Bill</button></div>
+				<div><button style="margin-top: 10px;float: right" (click)="saveBill()" mat-stroked-button color="primary">Save Bill</button></div>
+			</div>
+		</div>
+
+		<div *ngIf="checkSalesflg && allSales.length > 0">			
+			<h2>Check Sales</h2>
+			<div *ngFor="let sale of allSales">
+				<div><b>order Id: </b> {{sale.id}}</div>
+				<div><b>order Date: </b> {{sale.created_date}}</div>
+				<div><b>Order Items: </b> {{sale.all_order_items.length}}</div>
+				<table class="items-grids">
+					<tr>					
+						<th>item id</th>
+						<th>item Name</th>
+						<th>item Brand</th>
+						<th>item Size</th>
+						<th>item Price</th>
+
+					</tr>
+					<tr *ngFor="let orderItem of sale.all_order_items">					
+						<td>{{orderItem.id}}</td>
+						<td>{{orderItem.item_name}}</td>
+						<td>{{orderItem.item_brand}}</td>				
+						<td>{{orderItem.variant_name}}</td>
+						<td style="text-align: right">Rs. {{orderItem.item_sell_price}}</td>
+					</tr>	
+					<tr>
+						<td style="text-align: right" colspan="6">						
+							<span><b>Total: </b> Rs. {{sale.order_total}}</span>
+						</td>						
+					</tr>	
+					<tr>					
+						<td style="text-align: right" colspan="6">
+							<p>
+								<span><b>Discount Price: </b> Rs. {{sale.order_discount}}</span>								
+							</p>
+							<p><b>Grand Total: </b>Rs. {{sale.order_total_after_discount}}</p>
+						</td>
+					</tr>		
+				</table>
+			</div>
+
+		</div>
+		<div *ngIf="checkSalesflg && allSales.length == 0">
+			No sales for now.
 		</div>
 	</div>
 </div>

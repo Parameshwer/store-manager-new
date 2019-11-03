@@ -303,6 +303,15 @@ let AdminService = class AdminService {
     getStock(storeId) {
         return this.http.post('http://localhost/store-manager-new/stores/getStock', { storeId: storeId });
     }
+    getItemDetails(formValues) {
+        return this.http.post('http://localhost/store-manager-new/stores/getItemDetails', formValues);
+    }
+    saveBill(formValues) {
+        return this.http.post('http://localhost/store-manager-new/stores/saveBill', formValues);
+    }
+    getSales(storeId) {
+        return this.http.post('http://localhost/store-manager-new/stores/getSales', { storeId: storeId });
+    }
 };
 AdminService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }

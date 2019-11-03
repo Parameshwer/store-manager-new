@@ -42,4 +42,47 @@ Class Stores extends CI_Controller {
 		$obj=json_decode(file_get_contents('php://input'));								
 		echo json_encode($this->Store_Model->getStock($obj->storeId));
 	}
+	public function getItemDetails() {
+		$obj=json_decode(file_get_contents('php://input'));		
+		$actualArray = explode(",",$obj->billingIds);		
+		$allData = $this->Store_Model->getItemDetails($obj);
+		$validItemsArray = [];
+		$allItemsPrice = 0;
+		foreach ($allData as $key => $value) {
+			array_push($validItemsArray,$value->id);
+			$allItemsPrice = $allItemsPrice + $value->item_sell_price;
+		}	
+
+		if(array_diff($actualArray,$validItemsArray)) {
+			$status = array('status' => false,"message" => 'Invalid Items Ids');
+		} else {
+			$status = array('status' => true,"data" => $allData,"totalPrice" => $allItemsPrice);
+		}
+		echo json_encode($status);
+	}
+	public function saveBill() {
+		$obj=json_decode(file_get_contents('php://input'));
+		$data = $this->Store_Model->saveBill($obj);
+		if($data) {
+			$status = array('status' => true,"message" => 'Order saved successfully');
+		} else  {
+			$status = array('status' => true,"message" => 'Order not saved successfully');
+		}
+	}
+	public function getSales() {
+		$obj=json_decode(file_get_contents('php://input'));
+		$data = $this->Store_Model->getSales($obj);
+		foreach ($data as $key => $value) {
+			if($value->order_items) {
+				$data[$key]->all_order_items = $this->Store_Model->getItemByids($value->order_items);
+			}
+		}		
+
+		if($data) {
+			$status = array('status' => true,"data" => $data);
+		} else  {
+			$status = array('status' => false);
+		}
+		echo json_encode($status);
+	}
 }	
