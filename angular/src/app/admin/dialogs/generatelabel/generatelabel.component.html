@@ -1,0 +1,64 @@
+<h1 mat-dialog-title>Print Bill</h1>
+	<div mat-dialog-content>
+		<div id="bill-print" class="bill-print">
+			<table>
+				<tr align="center">
+					<td>Store: <b>Denim Smart Ramayampet</b></td>
+					<td>Date: <b>08 Nov, 2019</b></td>    
+				</tr>
+				<tr>
+					<td>Order Id: <b>10</b></td>
+					<td>No of Items: <b>10</b></td>
+				</tr>			
+			</table>
+			<table>
+				<tr>
+					<th>Item Id</th>
+					<th>Item Name</th>
+					<th>Item Brand</th>
+					<th>Item Size</th>
+					<th>Item Price</th>
+				</tr>
+				<tr>
+					<td>1000</td>
+					<td>Shirt</td>
+					<td>Denim Smart</td>
+					<td>S</td>
+					<td style="text-align: right">Rs. 1000</td>
+				</tr>
+				<tr>
+					<td>1000</td>
+					<td>Shirt</td>
+					<td>Denim Smart</td>
+					<td>S</td>
+					<td style="text-align: right">Rs. 1000</td>
+				</tr>
+				<tr>
+					<td>1000</td>
+					<td>Shirt</td>
+					<td>Denim Smart</td>
+					<td>S</td>
+					<td style="text-align: right">Rs. 1000</td>
+				</tr>
+				<tr>
+					<td>1000</td>
+					<td>Shirt</td>
+					<td>Denim Smart</td>
+					<td>S</td>
+					<td style="text-align: right">Rs. 1000</td>
+				</tr>
+
+
+				<tr>
+					<td colspan="6" style="text-align: right">
+						<p><span><b>Discount Price: </b> Rs. 250</span></p>
+						<p><b>Grand Total: </b>Rs. 250</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div mat-dialog-actions>
+		<button mat-button (click)="onNoClick()">Cancel</button>
+		<button mat-primary mat-button cdkFocusInitial (click)="printDiv()">Print Bill</button>
+	</div>

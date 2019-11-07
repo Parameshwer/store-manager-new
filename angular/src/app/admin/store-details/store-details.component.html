@@ -1,9 +1,9 @@
 <div class="store-detail-container">
 	<div class="store-detail-sidenav">
-		<button mat-menu-item (click)="checkStock()">Check Stock</button>
-		<button mat-menu-item (click)="sendStock()">Send Stock</button>
+		<button mat-menu-item (click)="checkStock()">Check Stock</button>		
+		<button mat-menu-item *ngIf="userDetails.user_role == 1" (click)="sendStock()">Send Stock</button>
 		<button mat-menu-item (click)="checkSales()">Check Sales</button>
-		<button mat-menu-item (click)="billing()">Billing</button>
+		<button mat-menu-item (click)="billing()">Billing</button>		
 	</div>
 	<div class="store-detail-maincontent">
 		<div *ngIf="sendStockflg">
@@ -42,19 +42,21 @@
 			</form>
 		</div>
 		<div *ngIf="checkStockflg">
+			<h2>Check Stock</h2>
 			<table class="items-grids">
 				<tr>					
 					<th>item name</th>
 					<th>item Variant</th>
 					<th>item Brand</th>
-
 					<th>Total</th>
+					<th></th>
 				</tr>
 				<tr *ngFor="let item of allStock">					
 					<td>{{item.item_name}}</td>
 					<td>{{item.item_brand}}</td>
 					<td>{{item.variant_name}}</td>				
 					<td>{{item.total}}</td>
+					<td><button mat-stroked-button (click)="generateLables(item)">Generate Lables</button></td>
 
 				</tr>				
 			</table>
@@ -101,14 +103,14 @@
 					<tr>					
 						<td style="text-align: right" colspan="6">
 							<p>
-								<span><b>Discount(%): </b> <input (keyup)="onKey($event)" style="width: 50px"type="text" name="discount" placeholder=""></span>
+								<span><b>Discount(%): </b> <input (keyup)="onKey($event)" style="width: 50px" [(ngModel)]="discountPer" type="text" name="discount" placeholder=""></span>
 								<span *ngIf="discountPrice"><b>  Discount Price:</b>Rs. {{discountPrice}}</span>
 							</p>
 							<p><b>Grand Total: </b>Rs. {{grandTotal}}</p>
 						</td>
 					</tr>		
 				</table>
-				<div><button style="margin-top: 10px;float: right" (click)="printDiv()" mat-stroked-button color="primary">Print Bill</button></div>
+				<!-- <div><button style="margin-top: 10px;float: right" (click)="printDiv()" mat-stroked-button color="primary">Print Bill</button></div> -->
 				<div><button style="margin-top: 10px;float: right" (click)="saveBill()" mat-stroked-button color="primary">Save Bill</button></div>
 			</div>
 		</div>

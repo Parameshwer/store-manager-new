@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { AdminService } from '../admin.service'
 import { ActivatedRoute,Router} from '@angular/router';
 import { FormBuilder,Validators,FormArray } from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { GeneratelabelComponent } from '../dialogs/generatelabel/generatelabel.component'
 
 @Component({
   selector: 'app-store-details',
@@ -25,15 +27,18 @@ export class StoreDetailsComponent implements OnInit {
   public totalPrice:any;
   public discountPrice = 0;
   public grandTotal = 0;
-
+  public userDetails:any = [];
+  public discountPer = 0;
   constructor(
   private adminService: AdminService,
   private fb: FormBuilder,
   private route: ActivatedRoute,
-  private router: Router
+  private router: Router,
+  public dialog: MatDialog
   
   ) {  
     this.getMasterItems();
+    this.getUserDetails();
     this.route.params.subscribe(params => {
       this.storeId = params.id; 
       this.checkStock();
@@ -43,6 +48,14 @@ export class StoreDetailsComponent implements OnInit {
   ngOnInit() {
     
   }
+
+  getUserDetails() {
+    this.adminService.getUserDetails().subscribe(response => {      
+      this.userDetails = response;      
+      console.log(this.userDetails);
+    });    
+  }
+
   sendStockForm = this.fb.group({
     itemTypes: ['', Validators.required],
     itemVariants: ['', Validators.required],
@@ -90,6 +103,11 @@ export class StoreDetailsComponent implements OnInit {
     this.sendStockflg = false;
     this.checkSalesflg = false;
     this.billingflg = false;
+    this.billingItems = [];
+    this.billingForm.reset();
+    this.totalPrice = 0;
+    this.discountPrice = 0;
+    this.grandTotal = 0;
   }
   billing() {
     this.resetAllFlags();
@@ -99,7 +117,7 @@ export class StoreDetailsComponent implements OnInit {
     this.billingForm.reset();
   }
   onBillingFormSubmit() {
-    console.log(this.billingForm.value);
+    this.discountPer = 0;
     if(this.billingForm.value) {
       this.billingForm.value.storeId = this.storeId;
     }
@@ -110,6 +128,7 @@ export class StoreDetailsComponent implements OnInit {
       this.invalidItemErrorMsg = "";
       this.billingItems = [];
       this.totalPrice = 0;
+      this.discountPrice = 0;
       if(response && response['status']) { 
           this.billingItems = response['data'];
           this.totalPrice = response['totalPrice'];
@@ -144,13 +163,24 @@ export class StoreDetailsComponent implements OnInit {
   saveBill() {
       let orderDetails = {};
           orderDetails['storeId'] = this.storeId;
-          orderDetails['billingIds'] = this.billingForm['value'][''];          
+          orderDetails['billingIds'] = this.billingForm['value']['billingIds'];          
           orderDetails['totalPrice'] = this.totalPrice;
           orderDetails['discountPrice'] = this.discountPrice;
           orderDetails['grandTotal'] = this.grandTotal;
 
       this.adminService.saveBill(orderDetails).subscribe(response => {
-        this.sendStockForm.reset();
+        if(response['status']) {
+          this.sendStockForm.reset();
+          const dialogRef = this.dialog.open(GeneratelabelComponent, {
+            width: '450px',
+            height: '800px',
+            data: {name: "dsds", animal: "this.animal"}
+          });
+
+          dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');            
+          });
+        }        
       });
   }
   checkSales() {
@@ -163,6 +193,18 @@ export class StoreDetailsComponent implements OnInit {
         this.allSales = response['data'];
         console.log(this.allSales);
       }
+    });
+  }
+  generateLables(item) {
+    const dialogRef = this.dialog.open(GeneratelabelComponent, {
+      width: window.innerWidth+'px',
+      height: window.innerHeight+'px',
+      data: {name: "dsds", animal: "this.animal"}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
     });
   }
 

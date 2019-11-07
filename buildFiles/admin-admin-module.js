@@ -13,6 +13,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/dialogs/generatelabel/generatelabel.component.html":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/admin/dialogs/generatelabel/generatelabel.component.html ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Print Bill</h1>\n\t<div mat-dialog-content>\n\t\t<div id=\"bill-print\" class=\"bill-print\">\n\t\t\t<table>\n\t\t\t\t<tr align=\"center\">\n\t\t\t\t\t<td>Store: <b>Denim Smart Ramayampet</b></td>\n\t\t\t\t\t<td>Date: <b>08 Nov, 2019</b></td>    \n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>Order Id: <b>10</b></td>\n\t\t\t\t\t<td>No of Items: <b>10</b></td>\n\t\t\t\t</tr>\t\t\t\n\t\t\t</table>\n\t\t\t<table>\n\t\t\t\t<tr>\n\t\t\t\t\t<th>Item Id</th>\n\t\t\t\t\t<th>Item Name</th>\n\t\t\t\t\t<th>Item Brand</th>\n\t\t\t\t\t<th>Item Size</th>\n\t\t\t\t\t<th>Item Price</th>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>1000</td>\n\t\t\t\t\t<td>Shirt</td>\n\t\t\t\t\t<td>Denim Smart</td>\n\t\t\t\t\t<td>S</td>\n\t\t\t\t\t<td style=\"text-align: right\">Rs. 1000</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>1000</td>\n\t\t\t\t\t<td>Shirt</td>\n\t\t\t\t\t<td>Denim Smart</td>\n\t\t\t\t\t<td>S</td>\n\t\t\t\t\t<td style=\"text-align: right\">Rs. 1000</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>1000</td>\n\t\t\t\t\t<td>Shirt</td>\n\t\t\t\t\t<td>Denim Smart</td>\n\t\t\t\t\t<td>S</td>\n\t\t\t\t\t<td style=\"text-align: right\">Rs. 1000</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>1000</td>\n\t\t\t\t\t<td>Shirt</td>\n\t\t\t\t\t<td>Denim Smart</td>\n\t\t\t\t\t<td>S</td>\n\t\t\t\t\t<td style=\"text-align: right\">Rs. 1000</td>\n\t\t\t\t</tr>\n\n\n\t\t\t\t<tr>\n\t\t\t\t\t<td colspan=\"6\" style=\"text-align: right\">\n\t\t\t\t\t\t<p><span><b>Discount Price: </b> Rs. 250</span></p>\n\t\t\t\t\t\t<p><b>Grand Total: </b>Rs. 250</p>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</table>\n\t\t</div>\n\t</div>\n\t<div mat-dialog-actions>\n\t\t<button mat-button (click)=\"onNoClick()\">Cancel</button>\n\t\t<button mat-primary mat-button cdkFocusInitial (click)=\"printDiv()\">Print Bill</button>\n\t</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/store-details/store-details.component.html":
 /*!********************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/admin/store-details/store-details.component.html ***!
@@ -22,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"store-detail-container\">\n\t<div class=\"store-detail-sidenav\">\n\t\t<button mat-menu-item (click)=\"checkStock()\">Check Stock</button>\n\t\t<button mat-menu-item (click)=\"sendStock()\">Send Stock</button>\n\t\t<button mat-menu-item (click)=\"checkSales()\">Check Sales</button>\n\t\t<button mat-menu-item (click)=\"billing()\">Billing</button>\n\t</div>\n\t<div class=\"store-detail-maincontent\">\n\t\t<div *ngIf=\"sendStockflg\">\n\t\t\t<h2>Send Stock</h2>\n\t\t\t<form *ngIf=\"masterItems\" [formGroup]=\"sendStockForm\" (ngSubmit)=\"onSubmit()\">\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<mat-label>Item Name</mat-label>\n\t\t\t\t\t<mat-select formControlName=\"itemTypes\">\n\t\t\t\t\t\t<mat-option *ngFor=\"let item of masterItems.itemTypes\" [value]=\"item.id\">\n\t\t\t\t\t\t\t{{item.item_name}}\n\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t</mat-select>\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<mat-label>Item Size</mat-label>\n\t\t\t\t\t<mat-select formControlName=\"itemVariants\">\n\t\t\t\t\t\t<mat-option *ngFor=\"let itemVariant of masterItems.itemVariants\" [value]=\"itemVariant.id\">\n\t\t\t\t\t\t\t{{itemVariant.variant_name}}\n\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t</mat-select>\n\t\t\t\t</mat-form-field> \n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<input matInput placeholder=\"Item Brand\" formControlName=\"itemBrand\">\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<input matInput placeholder=\"No Of Items\" formControlName=\"noOfItems\">\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<input matInput placeholder=\"Enter actual amount\" formControlName=\"actualAmount\">\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<input matInput placeholder=\"Enter selling amount\" formControlName=\"sellingAmount\">\n\t\t\t\t</mat-form-field>\n\t\t\t\t<button mat-stroked-button (click)=\"resetForm()\">Cancel</button>\n\t\t\t\t<button style=\"margin-left: 20px;\" mat-stroked-button color=\"primary\" type=\"submit\" [disabled]=\"!sendStockForm.valid\">Send Stock</button>\n\t\t\t</form>\n\t\t</div>\n\t\t<div *ngIf=\"checkStockflg\">\n\t\t\t<table class=\"items-grids\">\n\t\t\t\t<tr>\t\t\t\t\t\n\t\t\t\t\t<th>item name</th>\n\t\t\t\t\t<th>item Variant</th>\n\t\t\t\t\t<th>item Brand</th>\n\n\t\t\t\t\t<th>Total</th>\n\t\t\t\t</tr>\n\t\t\t\t<tr *ngFor=\"let item of allStock\">\t\t\t\t\t\n\t\t\t\t\t<td>{{item.item_name}}</td>\n\t\t\t\t\t<td>{{item.item_brand}}</td>\n\t\t\t\t\t<td>{{item.variant_name}}</td>\t\t\t\t\n\t\t\t\t\t<td>{{item.total}}</td>\n\n\t\t\t\t</tr>\t\t\t\t\n\t\t\t</table>\n\t\t</div>\n\n\t\t<div *ngIf=\"billingflg\">\n\t\t\t<h2>Billing</h2>\n\t\t\t<form [formGroup]=\"billingForm\" (ngSubmit)=\"onBillingFormSubmit()\">\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<mat-label>Enter Item Code</mat-label>\n\t\t\t\t\t<textarea matInput\n\t\t\t\t\tcdkTextareaAutosize\n\t\t\t\t\t#autosize=\"cdkTextareaAutosize\"\n\t\t\t\t\tcdkAutosizeMinRows=\"5\"\n\t\t\t\t\tcdkAutosizeMaxRows=\"5\" formControlName=\"billingIds\"></textarea>\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-error>{{invalidItemErrorMsg}}</mat-error>\n\t\t\t\t<button mat-stroked-button (click)=\"resetBillingForm()\">Cancel Bill</button>\n\t\t\t\t<button style=\"margin-left: 20px;\" mat-stroked-button color=\"primary\" type=\"submit\" [disabled]=\"!billingForm.valid\">Make Bill</button>\n\t\t\t</form>\n\n\t\t\t<div id=\"billing-items\" class=\"billing-items\" *ngIf=\"billingItems.length > 0\">\t\t\t\t\n\t\t\t\t<table class=\"items-grids\">\n\t\t\t\t\t<tr>\t\t\t\t\t\n\t\t\t\t\t\t<th>item id</th>\n\t\t\t\t\t\t<th>item Name</th>\n\t\t\t\t\t\t<th>item Brand</th>\n\t\t\t\t\t\t<th>item Size</th>\n\t\t\t\t\t\t<th>item Price</th>\n\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr *ngFor=\"let item of billingItems\">\t\t\t\t\t\n\t\t\t\t\t\t<td>{{item.id}}</td>\n\t\t\t\t\t\t<td>{{item.item_name}}</td>\n\t\t\t\t\t\t<td>{{item.item_brand}}</td>\t\t\t\t\n\t\t\t\t\t\t<td>{{item.variant_name}}</td>\n\t\t\t\t\t\t<td style=\"text-align: right\">Rs. {{item.item_sell_price}}</td>\n\t\t\t\t\t</tr>\t\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td style=\"text-align: right\" colspan=\"6\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t<span><b>Total: </b> Rs. {{totalPrice}}</span>\n\t\t\t\t\t\t</td>\t\t\t\t\t\t\n\t\t\t\t\t</tr>\t\n\t\t\t\t\t<tr>\t\t\t\t\t\n\t\t\t\t\t\t<td style=\"text-align: right\" colspan=\"6\">\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<span><b>Discount(%): </b> <input (keyup)=\"onKey($event)\" style=\"width: 50px\"type=\"text\" name=\"discount\" placeholder=\"\"></span>\n\t\t\t\t\t\t\t\t<span *ngIf=\"discountPrice\"><b>  Discount Price:</b>Rs. {{discountPrice}}</span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p><b>Grand Total: </b>Rs. {{grandTotal}}</p>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\t\t\n\t\t\t\t</table>\n\t\t\t\t<div><button style=\"margin-top: 10px;float: right\" (click)=\"printDiv()\" mat-stroked-button color=\"primary\">Print Bill</button></div>\n\t\t\t\t<div><button style=\"margin-top: 10px;float: right\" (click)=\"saveBill()\" mat-stroked-button color=\"primary\">Save Bill</button></div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div *ngIf=\"checkSalesflg && allSales.length > 0\">\t\t\t\n\t\t\t<h2>Check Sales</h2>\n\t\t\t<div *ngFor=\"let sale of allSales\">\n\t\t\t\t<div><b>order Id: </b> {{sale.id}}</div>\n\t\t\t\t<div><b>order Date: </b> {{sale.created_date}}</div>\n\t\t\t\t<div><b>Order Items: </b> {{sale.all_order_items.length}}</div>\n\t\t\t\t<table class=\"items-grids\">\n\t\t\t\t\t<tr>\t\t\t\t\t\n\t\t\t\t\t\t<th>item id</th>\n\t\t\t\t\t\t<th>item Name</th>\n\t\t\t\t\t\t<th>item Brand</th>\n\t\t\t\t\t\t<th>item Size</th>\n\t\t\t\t\t\t<th>item Price</th>\n\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr *ngFor=\"let orderItem of sale.all_order_items\">\t\t\t\t\t\n\t\t\t\t\t\t<td>{{orderItem.id}}</td>\n\t\t\t\t\t\t<td>{{orderItem.item_name}}</td>\n\t\t\t\t\t\t<td>{{orderItem.item_brand}}</td>\t\t\t\t\n\t\t\t\t\t\t<td>{{orderItem.variant_name}}</td>\n\t\t\t\t\t\t<td style=\"text-align: right\">Rs. {{orderItem.item_sell_price}}</td>\n\t\t\t\t\t</tr>\t\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td style=\"text-align: right\" colspan=\"6\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t<span><b>Total: </b> Rs. {{sale.order_total}}</span>\n\t\t\t\t\t\t</td>\t\t\t\t\t\t\n\t\t\t\t\t</tr>\t\n\t\t\t\t\t<tr>\t\t\t\t\t\n\t\t\t\t\t\t<td style=\"text-align: right\" colspan=\"6\">\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<span><b>Discount Price: </b> Rs. {{sale.order_discount}}</span>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p><b>Grand Total: </b>Rs. {{sale.order_total_after_discount}}</p>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\t\t\n\t\t\t\t</table>\n\t\t\t</div>\n\n\t\t</div>\n\t\t<div *ngIf=\"checkSalesflg && allSales.length == 0\">\n\t\t\tNo sales for now.\n\t\t</div>\n\t</div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"store-detail-container\">\n\t<div class=\"store-detail-sidenav\">\n\t\t<button mat-menu-item (click)=\"checkStock()\">Check Stock</button>\t\t\n\t\t<button mat-menu-item *ngIf=\"userDetails.user_role == 1\" (click)=\"sendStock()\">Send Stock</button>\n\t\t<button mat-menu-item (click)=\"checkSales()\">Check Sales</button>\n\t\t<button mat-menu-item (click)=\"billing()\">Billing</button>\t\t\n\t</div>\n\t<div class=\"store-detail-maincontent\">\n\t\t<div *ngIf=\"sendStockflg\">\n\t\t\t<h2>Send Stock</h2>\n\t\t\t<form *ngIf=\"masterItems\" [formGroup]=\"sendStockForm\" (ngSubmit)=\"onSubmit()\">\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<mat-label>Item Name</mat-label>\n\t\t\t\t\t<mat-select formControlName=\"itemTypes\">\n\t\t\t\t\t\t<mat-option *ngFor=\"let item of masterItems.itemTypes\" [value]=\"item.id\">\n\t\t\t\t\t\t\t{{item.item_name}}\n\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t</mat-select>\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<mat-label>Item Size</mat-label>\n\t\t\t\t\t<mat-select formControlName=\"itemVariants\">\n\t\t\t\t\t\t<mat-option *ngFor=\"let itemVariant of masterItems.itemVariants\" [value]=\"itemVariant.id\">\n\t\t\t\t\t\t\t{{itemVariant.variant_name}}\n\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t</mat-select>\n\t\t\t\t</mat-form-field> \n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<input matInput placeholder=\"Item Brand\" formControlName=\"itemBrand\">\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<input matInput placeholder=\"No Of Items\" formControlName=\"noOfItems\">\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<input matInput placeholder=\"Enter actual amount\" formControlName=\"actualAmount\">\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<input matInput placeholder=\"Enter selling amount\" formControlName=\"sellingAmount\">\n\t\t\t\t</mat-form-field>\n\t\t\t\t<button mat-stroked-button (click)=\"resetForm()\">Cancel</button>\n\t\t\t\t<button style=\"margin-left: 20px;\" mat-stroked-button color=\"primary\" type=\"submit\" [disabled]=\"!sendStockForm.valid\">Send Stock</button>\n\t\t\t</form>\n\t\t</div>\n\t\t<div *ngIf=\"checkStockflg\">\n\t\t\t<h2>Check Stock</h2>\n\t\t\t<table class=\"items-grids\">\n\t\t\t\t<tr>\t\t\t\t\t\n\t\t\t\t\t<th>item name</th>\n\t\t\t\t\t<th>item Variant</th>\n\t\t\t\t\t<th>item Brand</th>\n\t\t\t\t\t<th>Total</th>\n\t\t\t\t\t<th></th>\n\t\t\t\t</tr>\n\t\t\t\t<tr *ngFor=\"let item of allStock\">\t\t\t\t\t\n\t\t\t\t\t<td>{{item.item_name}}</td>\n\t\t\t\t\t<td>{{item.item_brand}}</td>\n\t\t\t\t\t<td>{{item.variant_name}}</td>\t\t\t\t\n\t\t\t\t\t<td>{{item.total}}</td>\n\t\t\t\t\t<td><button mat-stroked-button (click)=\"generateLables(item)\">Generate Lables</button></td>\n\n\t\t\t\t</tr>\t\t\t\t\n\t\t\t</table>\n\t\t</div>\n\n\t\t<div *ngIf=\"billingflg\">\n\t\t\t<h2>Billing</h2>\n\t\t\t<form [formGroup]=\"billingForm\" (ngSubmit)=\"onBillingFormSubmit()\">\n\t\t\t\t<mat-form-field>\n\t\t\t\t\t<mat-label>Enter Item Code</mat-label>\n\t\t\t\t\t<textarea matInput\n\t\t\t\t\tcdkTextareaAutosize\n\t\t\t\t\t#autosize=\"cdkTextareaAutosize\"\n\t\t\t\t\tcdkAutosizeMinRows=\"5\"\n\t\t\t\t\tcdkAutosizeMaxRows=\"5\" formControlName=\"billingIds\"></textarea>\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-error>{{invalidItemErrorMsg}}</mat-error>\n\t\t\t\t<button mat-stroked-button (click)=\"resetBillingForm()\">Cancel Bill</button>\n\t\t\t\t<button style=\"margin-left: 20px;\" mat-stroked-button color=\"primary\" type=\"submit\" [disabled]=\"!billingForm.valid\">Make Bill</button>\n\t\t\t</form>\n\n\t\t\t<div id=\"billing-items\" class=\"billing-items\" *ngIf=\"billingItems.length > 0\">\t\t\t\t\n\t\t\t\t<table class=\"items-grids\">\n\t\t\t\t\t<tr>\t\t\t\t\t\n\t\t\t\t\t\t<th>item id</th>\n\t\t\t\t\t\t<th>item Name</th>\n\t\t\t\t\t\t<th>item Brand</th>\n\t\t\t\t\t\t<th>item Size</th>\n\t\t\t\t\t\t<th>item Price</th>\n\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr *ngFor=\"let item of billingItems\">\t\t\t\t\t\n\t\t\t\t\t\t<td>{{item.id}}</td>\n\t\t\t\t\t\t<td>{{item.item_name}}</td>\n\t\t\t\t\t\t<td>{{item.item_brand}}</td>\t\t\t\t\n\t\t\t\t\t\t<td>{{item.variant_name}}</td>\n\t\t\t\t\t\t<td style=\"text-align: right\">Rs. {{item.item_sell_price}}</td>\n\t\t\t\t\t</tr>\t\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td style=\"text-align: right\" colspan=\"6\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t<span><b>Total: </b> Rs. {{totalPrice}}</span>\n\t\t\t\t\t\t</td>\t\t\t\t\t\t\n\t\t\t\t\t</tr>\t\n\t\t\t\t\t<tr>\t\t\t\t\t\n\t\t\t\t\t\t<td style=\"text-align: right\" colspan=\"6\">\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<span><b>Discount(%): </b> <input (keyup)=\"onKey($event)\" style=\"width: 50px\" [(ngModel)]=\"discountPer\" type=\"text\" name=\"discount\" placeholder=\"\"></span>\n\t\t\t\t\t\t\t\t<span *ngIf=\"discountPrice\"><b>  Discount Price:</b>Rs. {{discountPrice}}</span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p><b>Grand Total: </b>Rs. {{grandTotal}}</p>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\t\t\n\t\t\t\t</table>\n\t\t\t\t<!-- <div><button style=\"margin-top: 10px;float: right\" (click)=\"printDiv()\" mat-stroked-button color=\"primary\">Print Bill</button></div> -->\n\t\t\t\t<div><button style=\"margin-top: 10px;float: right\" (click)=\"saveBill()\" mat-stroked-button color=\"primary\">Save Bill</button></div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div *ngIf=\"checkSalesflg && allSales.length > 0\">\t\t\t\n\t\t\t<h2>Check Sales</h2>\n\t\t\t<div *ngFor=\"let sale of allSales\">\n\t\t\t\t<div><b>order Id: </b> {{sale.id}}</div>\n\t\t\t\t<div><b>order Date: </b> {{sale.created_date}}</div>\n\t\t\t\t<div><b>Order Items: </b> {{sale.all_order_items.length}}</div>\n\t\t\t\t<table class=\"items-grids\">\n\t\t\t\t\t<tr>\t\t\t\t\t\n\t\t\t\t\t\t<th>item id</th>\n\t\t\t\t\t\t<th>item Name</th>\n\t\t\t\t\t\t<th>item Brand</th>\n\t\t\t\t\t\t<th>item Size</th>\n\t\t\t\t\t\t<th>item Price</th>\n\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr *ngFor=\"let orderItem of sale.all_order_items\">\t\t\t\t\t\n\t\t\t\t\t\t<td>{{orderItem.id}}</td>\n\t\t\t\t\t\t<td>{{orderItem.item_name}}</td>\n\t\t\t\t\t\t<td>{{orderItem.item_brand}}</td>\t\t\t\t\n\t\t\t\t\t\t<td>{{orderItem.variant_name}}</td>\n\t\t\t\t\t\t<td style=\"text-align: right\">Rs. {{orderItem.item_sell_price}}</td>\n\t\t\t\t\t</tr>\t\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td style=\"text-align: right\" colspan=\"6\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t<span><b>Total: </b> Rs. {{sale.order_total}}</span>\n\t\t\t\t\t\t</td>\t\t\t\t\t\t\n\t\t\t\t\t</tr>\t\n\t\t\t\t\t<tr>\t\t\t\t\t\n\t\t\t\t\t\t<td style=\"text-align: right\" colspan=\"6\">\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<span><b>Discount Price: </b> Rs. {{sale.order_discount}}</span>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p><b>Grand Total: </b>Rs. {{sale.order_total_after_discount}}</p>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\t\t\n\t\t\t\t</table>\n\t\t\t</div>\n\n\t\t</div>\n\t\t<div *ngIf=\"checkSalesflg && allSales.length == 0\">\n\t\t\tNo sales for now.\n\t\t</div>\n\t</div>\n</div>\n");
 
 /***/ }),
 
@@ -82,10 +95,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _admin_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./admin-routing.module */ "./src/app/admin/admin-routing.module.ts");
-/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin/admin.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
-/* harmony import */ var _store_details_store_details_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store-details/store-details.component */ "./src/app/admin/store-details/store-details.component.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
+/* harmony import */ var _admin_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin-routing.module */ "./src/app/admin/admin-routing.module.ts");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin/admin.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _store_details_store_details_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store-details/store-details.component */ "./src/app/admin/store-details/store-details.component.ts");
+/* harmony import */ var _dialogs_generatelabel_generatelabel_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dialogs/generatelabel/generatelabel.component */ "./src/app/admin/dialogs/generatelabel/generatelabel.component.ts");
+
+
 
 
 
@@ -99,22 +116,24 @@ let AdminModule = class AdminModule {
 };
 AdminModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_admin_admin_component__WEBPACK_IMPORTED_MODULE_6__["AdminComponent"], _store_details_store_details_component__WEBPACK_IMPORTED_MODULE_8__["StoreDetailsComponent"]],
+        declarations: [_admin_admin_component__WEBPACK_IMPORTED_MODULE_7__["AdminComponent"], _store_details_store_details_component__WEBPACK_IMPORTED_MODULE_9__["StoreDetailsComponent"], _dialogs_generatelabel_generatelabel_component__WEBPACK_IMPORTED_MODULE_10__["GeneratelabelComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _admin_routing_module__WEBPACK_IMPORTED_MODULE_5__["AdminRoutingModule"],
+            _admin_routing_module__WEBPACK_IMPORTED_MODULE_6__["AdminRoutingModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatToolbarModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatButtonModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSidenavModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatMenuModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSelectModule"]
-        ]
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatToolbarModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSidenavModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSelectModule"],
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialogModule"]
+        ],
+        entryComponents: [_dialogs_generatelabel_generatelabel_component__WEBPACK_IMPORTED_MODULE_10__["GeneratelabelComponent"]]
     })
 ], AdminModule);
 
@@ -161,15 +180,13 @@ let AdminComponent = class AdminComponent {
         this.router = router;
         this.App = App;
         this.userDetails = [];
-    }
-    ngOnInit() {
         this.getUserDetails();
         this.getStoreDetails();
-        this.getStores();
+    }
+    ngOnInit() {
     }
     getStoreDetails() {
         this.route.params.subscribe(params => {
-            console.log(params);
             this.storeId = params.id;
             this.adminService.getStoreDetails(this.storeId).subscribe(response => {
                 this.storeDetails = response;
@@ -182,10 +199,11 @@ let AdminComponent = class AdminComponent {
     getUserDetails() {
         this.adminService.getUserDetails().subscribe(response => {
             this.userDetails.push(response);
+            this.getStores();
         });
     }
     getStores() {
-        this.adminService.getStores().subscribe(response => {
+        this.adminService.getStores(this.userDetails[0]).subscribe(response => {
             console.log(response);
             this.stores = response;
         });
@@ -204,6 +222,63 @@ AdminComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./admin.component.scss */ "./src/app/admin/admin/admin.component.scss")).default]
     })
 ], AdminComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/dialogs/generatelabel/generatelabel.component.scss":
+/*!**************************************************************************!*\
+  !*** ./src/app/admin/dialogs/generatelabel/generatelabel.component.scss ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".bill-print {\n  font-size: 12px;\n}\n.bill-print table {\n  font-family: arial, sans-serif;\n  border-collapse: collapse;\n  width: 100%;\n}\n.bill-print td, .bill-print th {\n  border: 1px solid #cebdbd;\n  text-align: left;\n  padding: 8px;\n}\n.bill-print tr:nth-child(even) {\n  background-color: #dddddd;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vZGlhbG9ncy9nZW5lcmF0ZWxhYmVsL0M6XFx4YW1wcFxcaHRkb2NzXFxzdG9yZS1tYW5hZ2VyLW5ld1xcYW5ndWxhci9zcmNcXGFwcFxcYWRtaW5cXGRpYWxvZ3NcXGdlbmVyYXRlbGFiZWxcXGdlbmVyYXRlbGFiZWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2RpYWxvZ3MvZ2VuZXJhdGVsYWJlbC9nZW5lcmF0ZWxhYmVsLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0EsZUFBQTtBQ0NBO0FEQUM7RUFDQyw4QkFBQTtFQUNBLHlCQUFBO0VBQ0EsV0FBQTtBQ0VGO0FEQ0E7RUFDRSx5QkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtBQ0NGO0FER0E7RUFDRSx5QkFBQTtBQ0RGIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vZGlhbG9ncy9nZW5lcmF0ZWxhYmVsL2dlbmVyYXRlbGFiZWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYmlsbC1wcmludCB7XHJcbmZvbnQtc2l6ZTogMTJweDtcclxuXHR0YWJsZSB7XHJcbiAgZm9udC1mYW1pbHk6IGFyaWFsLCBzYW5zLXNlcmlmO1xyXG4gIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbnRkLCB0aCB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2NlYmRiZDtcclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gIHBhZGRpbmc6IDhweDtcclxuICBcclxufVxyXG5cclxudHI6bnRoLWNoaWxkKGV2ZW4pIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZGRkZGRkO1xyXG59XHJcbn0iLCIuYmlsbC1wcmludCB7XG4gIGZvbnQtc2l6ZTogMTJweDtcbn1cbi5iaWxsLXByaW50IHRhYmxlIHtcbiAgZm9udC1mYW1pbHk6IGFyaWFsLCBzYW5zLXNlcmlmO1xuICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xuICB3aWR0aDogMTAwJTtcbn1cbi5iaWxsLXByaW50IHRkLCAuYmlsbC1wcmludCB0aCB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNjZWJkYmQ7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG4gIHBhZGRpbmc6IDhweDtcbn1cbi5iaWxsLXByaW50IHRyOm50aC1jaGlsZChldmVuKSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNkZGRkZGQ7XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/admin/dialogs/generatelabel/generatelabel.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/admin/dialogs/generatelabel/generatelabel.component.ts ***!
+  \************************************************************************/
+/*! exports provided: GeneratelabelComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GeneratelabelComponent", function() { return GeneratelabelComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let GeneratelabelComponent = class GeneratelabelComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+    printDiv() {
+        var mywindow = window.open('', 'new div', 'height=400,width=600');
+        mywindow.document.write('<html><head><title></title>');
+        mywindow.document.write('<link rel="stylesheet" href="public/midday_receipt.css" type="text/css" />');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(document.getElementById("bill-print").innerHTML);
+        mywindow.document.write('</body></html>');
+        mywindow.document.close();
+        mywindow.focus();
+        setTimeout(function () { mywindow.print(); }, 1000);
+        //mywindow.close();
+        return true;
+    }
+};
+GeneratelabelComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-generatelabel',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./generatelabel.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/dialogs/generatelabel/generatelabel.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./generatelabel.component.scss */ "./src/app/admin/dialogs/generatelabel/generatelabel.component.scss")).default]
+    })
+], GeneratelabelComponent);
 
 
 
@@ -237,17 +312,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../admin.service */ "./src/app/admin/admin.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
+/* harmony import */ var _dialogs_generatelabel_generatelabel_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dialogs/generatelabel/generatelabel.component */ "./src/app/admin/dialogs/generatelabel/generatelabel.component.ts");
+
+
 
 
 
 
 
 let StoreDetailsComponent = class StoreDetailsComponent {
-    constructor(adminService, fb, route, router) {
+    constructor(adminService, fb, route, router, dialog) {
         this.adminService = adminService;
         this.fb = fb;
         this.route = route;
         this.router = router;
+        this.dialog = dialog;
         this.checkStockflg = true;
         this.sendStockflg = false;
         this.checkSalesflg = false;
@@ -257,6 +337,8 @@ let StoreDetailsComponent = class StoreDetailsComponent {
         this.billingItems = [];
         this.discountPrice = 0;
         this.grandTotal = 0;
+        this.userDetails = [];
+        this.discountPer = 0;
         this.sendStockForm = this.fb.group({
             itemTypes: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
             itemVariants: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
@@ -269,12 +351,19 @@ let StoreDetailsComponent = class StoreDetailsComponent {
             billingIds: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]
         });
         this.getMasterItems();
+        this.getUserDetails();
         this.route.params.subscribe(params => {
             this.storeId = params.id;
             this.checkStock();
         });
     }
     ngOnInit() {
+    }
+    getUserDetails() {
+        this.adminService.getUserDetails().subscribe(response => {
+            this.userDetails = response;
+            console.log(this.userDetails);
+        });
     }
     getMasterItems() {
         this.adminService.getMasterItems().subscribe(response => {
@@ -308,6 +397,11 @@ let StoreDetailsComponent = class StoreDetailsComponent {
         this.sendStockflg = false;
         this.checkSalesflg = false;
         this.billingflg = false;
+        this.billingItems = [];
+        this.billingForm.reset();
+        this.totalPrice = 0;
+        this.discountPrice = 0;
+        this.grandTotal = 0;
     }
     billing() {
         this.resetAllFlags();
@@ -317,7 +411,7 @@ let StoreDetailsComponent = class StoreDetailsComponent {
         this.billingForm.reset();
     }
     onBillingFormSubmit() {
-        console.log(this.billingForm.value);
+        this.discountPer = 0;
         if (this.billingForm.value) {
             this.billingForm.value.storeId = this.storeId;
         }
@@ -327,6 +421,7 @@ let StoreDetailsComponent = class StoreDetailsComponent {
             this.invalidItemErrorMsg = "";
             this.billingItems = [];
             this.totalPrice = 0;
+            this.discountPrice = 0;
             if (response && response['status']) {
                 this.billingItems = response['data'];
                 this.totalPrice = response['totalPrice'];
@@ -361,12 +456,22 @@ let StoreDetailsComponent = class StoreDetailsComponent {
     saveBill() {
         let orderDetails = {};
         orderDetails['storeId'] = this.storeId;
-        orderDetails['billingIds'] = this.billingForm['value'][''];
+        orderDetails['billingIds'] = this.billingForm['value']['billingIds'];
         orderDetails['totalPrice'] = this.totalPrice;
         orderDetails['discountPrice'] = this.discountPrice;
         orderDetails['grandTotal'] = this.grandTotal;
         this.adminService.saveBill(orderDetails).subscribe(response => {
-            this.sendStockForm.reset();
+            if (response['status']) {
+                this.sendStockForm.reset();
+                const dialogRef = this.dialog.open(_dialogs_generatelabel_generatelabel_component__WEBPACK_IMPORTED_MODULE_6__["GeneratelabelComponent"], {
+                    width: '450px',
+                    height: '800px',
+                    data: { name: "dsds", animal: "this.animal" }
+                });
+                dialogRef.afterClosed().subscribe(result => {
+                    console.log('The dialog was closed');
+                });
+            }
         });
     }
     checkSales() {
@@ -381,12 +486,23 @@ let StoreDetailsComponent = class StoreDetailsComponent {
             }
         });
     }
+    generateLables(item) {
+        const dialogRef = this.dialog.open(_dialogs_generatelabel_generatelabel_component__WEBPACK_IMPORTED_MODULE_6__["GeneratelabelComponent"], {
+            width: window.innerWidth + 'px',
+            height: window.innerHeight + 'px',
+            data: { name: "dsds", animal: "this.animal" }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+        });
+    }
 };
 StoreDetailsComponent.ctorParameters = () => [
     { type: _admin_service__WEBPACK_IMPORTED_MODULE_2__["AdminService"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] }
 ];
 StoreDetailsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

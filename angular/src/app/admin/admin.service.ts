@@ -6,13 +6,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AdminService {
-
+  public userDetails = [];
   constructor(private http: HttpClient) {
 
   }
 
-  getStores() {
-  	return this.http.get('http://localhost/store-manager-new/stores/getStores');
+  getStores(userDetails) {
+  	return this.http.post('http://localhost/store-manager-new/stores/getStores', userDetails);
   }
 
   getStoreDetails(storeId) {

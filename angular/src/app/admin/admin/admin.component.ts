@@ -21,17 +21,17 @@ export class AdminComponent implements OnInit {
    private adminService: AdminService,
    private route: ActivatedRoute,
    private router: Router
-  ) {}
+  ) {
+    this.getUserDetails();    
+    this.getStoreDetails();   
+  }
 
   ngOnInit() {
-    this.getUserDetails();  	
-    this.getStoreDetails(); 
-    this.getStores();
+      
   }
 
   getStoreDetails() {
     this.route.params.subscribe(params => {
-    console.log(params);
         this.storeId = params.id;
           this.adminService.getStoreDetails(this.storeId).subscribe(response => {                
             this.storeDetails = response;
@@ -44,10 +44,11 @@ export class AdminComponent implements OnInit {
   getUserDetails() {
     this.adminService.getUserDetails().subscribe(response => {      
       this.userDetails.push(response);
+      this.getStores();
     });
   }
-  getStores() {
-    this.adminService.getStores().subscribe(response => {
+  getStores() {    
+    this.adminService.getStores(this.userDetails[0]).subscribe(response => {
       console.log(response);
       this.stores = response;
     });

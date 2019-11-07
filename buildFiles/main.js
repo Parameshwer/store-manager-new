@@ -284,9 +284,10 @@ __webpack_require__.r(__webpack_exports__);
 let AdminService = class AdminService {
     constructor(http) {
         this.http = http;
+        this.userDetails = [];
     }
-    getStores() {
-        return this.http.get('http://localhost/store-manager-new/stores/getStores');
+    getStores(userDetails) {
+        return this.http.post('http://localhost/store-manager-new/stores/getStores', userDetails);
     }
     getStoreDetails(storeId) {
         return this.http.post('http://localhost/store-manager-new/stores/getStoreDetails', { id: storeId });

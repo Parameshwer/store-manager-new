@@ -15,8 +15,10 @@ Class Stores extends CI_Controller {
 	{					
 		$this->load->view('../../buildFiles/index.php');		
 	}
-	public function getStores() {			
-		$storesData = $this->Store_Model->getStores();
+	public function getStores() {		
+		$obj=json_decode(file_get_contents('php://input'));	
+
+		$storesData = $this->Store_Model->getStores($obj);
 		echo json_encode($storesData);
 	}
 	public function getUserDetails() {			
@@ -48,25 +50,35 @@ Class Stores extends CI_Controller {
 		$allData = $this->Store_Model->getItemDetails($obj);
 		$validItemsArray = [];
 		$allItemsPrice = 0;
-		foreach ($allData as $key => $value) {
-			array_push($validItemsArray,$value->id);
-			$allItemsPrice = $allItemsPrice + $value->item_sell_price;
-		}	
+		if($allData) {
+			foreach ($allData as $key => $value) {
+				array_push($validItemsArray,$value->id);
+				$allItemsPrice = $allItemsPrice + $value->item_sell_price;
+			}	
 
-		if(array_diff($actualArray,$validItemsArray)) {
-			$status = array('status' => false,"message" => 'Invalid Items Ids');
+			if(array_diff($actualArray,$validItemsArray)) {
+				$status = array('status' => false,"message" => 'Invalid Items Ids');
+			} else {
+				$status = array('status' => true,"data" => $allData,"totalPrice" => $allItemsPrice);
+			}
 		} else {
-			$status = array('status' => true,"data" => $allData,"totalPrice" => $allItemsPrice);
+			$status = array('status' => false);
 		}
+		
+		
 		echo json_encode($status);
 	}
 	public function saveBill() {
 		$obj=json_decode(file_get_contents('php://input'));
-		$data = $this->Store_Model->saveBill($obj);
-		if($data) {
-			$status = array('status' => true,"message" => 'Order saved successfully');
-		} else  {
-			$status = array('status' => true,"message" => 'Order not saved successfully');
+		$itemsStatusUpdate = $this->Store_Model->itemsStatusUpdate($obj);
+		if($itemsStatusUpdate) {
+			$data = $this->Store_Model->saveBill($obj);
+			if($data) {
+				$status = array('status' => true,"message" => 'Order saved successfully');
+			} else  {
+				$status = array('status' => true,"message" => 'Order not saved successfully');
+			}
+			echo json_encode($status);
 		}
 	}
 	public function getSales() {
